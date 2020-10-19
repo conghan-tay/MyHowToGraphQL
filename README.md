@@ -1,3 +1,4 @@
 # MyHowToGraphQL
 
-Using Postgres not MySQL
+Using Postgres NOT MySQL  
+Use std library for routing NOT Chi
