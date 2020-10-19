@@ -7,6 +7,8 @@ import (
 	db "HowToGraphql/db/sqlc"
 	"HowToGraphql/graph/generated"
 	"HowToGraphql/graph/model"
+	"HowToGraphql/internal/auth"
+	"HowToGraphql/pkg/jwt"
 	"context"
 	"fmt"
 	"strconv"
@@ -32,7 +34,19 @@ func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) 
 }
 
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (string, error) {
-	panic(fmt.Errorf("not implemented"))
+	hashedPassword, err := auth.HashPassword(input.Password)
+	if err != nil {
+		return "", err
+	}
+	db.DbQueries.CreateUser(ctx, db.CreateUserParams{
+		Username: input.Username,
+		Password: hashedPassword,
+	})
+	token, err := jwt.GenerateToken(input.Username)
+	if err != nil {
+		return "", err
+	}
+	return token, nil
 }
 
 func (r *mutationResolver) Login(ctx context.Context, input model.Login) (string, error) {

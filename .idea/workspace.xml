@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1c2ce7cb-e856-4ccf-a5fb-e0966a9268f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/user.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/query/user.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlc/user.sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlc/user.sql.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/schema.resolvers.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/schema.resolvers.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,7 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/MyCode/golang/GO_PG/goland-modules-test" />
   </component>
-  <component name="RunManager" selected="Go Build.go build HowToGraphql">
+  <component name="RunManager" selected="Makefile.sqlc">
     <configuration name="go build HowToGraphql" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="HowToGraphql" />
       <working_directory value="$PROJECT_DIR$" />
@@ -79,8 +81,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build HowToGraphql" />
         <item itemvalue="Makefile.sqlc" />
+        <item itemvalue="Go Build.go build HowToGraphql" />
         <item itemvalue="Makefile.migrateup" />
         <item itemvalue="Makefile.createdb" />
         <item itemvalue="Makefile.postgres" />
@@ -110,21 +112,21 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1026" y="215" width="800" height="677" key="#Go_Modules_(vgo)/67.27.1853.1053@67.27.1853.1053" timestamp="1603011802225" />
-    <state width="881" height="204" key="GridCell.Tab.0.bottom" timestamp="1603101420052">
+    <state width="881" height="204" key="GridCell.Tab.0.bottom" timestamp="1603103570046">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="204" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1603101420052" />
-    <state width="881" height="204" key="GridCell.Tab.0.center" timestamp="1603101420051">
+    <state width="881" height="204" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1603103570046" />
+    <state width="881" height="204" key="GridCell.Tab.0.center" timestamp="1603103570046">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="204" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1603101420051" />
-    <state width="881" height="204" key="GridCell.Tab.0.left" timestamp="1603101420050">
+    <state width="881" height="204" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1603103570046" />
+    <state width="881" height="204" key="GridCell.Tab.0.left" timestamp="1603103570045">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="204" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1603101420050" />
-    <state width="881" height="204" key="GridCell.Tab.0.right" timestamp="1603101420052">
+    <state width="881" height="204" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1603103570045" />
+    <state width="881" height="204" key="GridCell.Tab.0.right" timestamp="1603103570046">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="204" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1603101420052" />
+    <state width="881" height="204" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1603103570046" />
   </component>
 </project>
