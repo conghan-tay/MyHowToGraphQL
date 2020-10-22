@@ -10,6 +10,7 @@ import (
 	"HowToGraphql/internal/auth"
 	"HowToGraphql/pkg/jwt"
 	"context"
+	"errors"
 	"fmt"
 	"strconv"
 )
@@ -38,10 +39,13 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 	if err != nil {
 		return "", err
 	}
-	db.DbQueries.CreateUser(ctx, db.CreateUserParams{
+	_, err = db.DbQueries.CreateUser(ctx, db.CreateUserParams{
 		Username: input.Username,
 		Password: hashedPassword,
 	})
+	if err != nil {
+		return  "", err
+	}
 	token, err := jwt.GenerateToken(input.Username)
 	if err != nil {
 		return "", err
@@ -50,7 +54,14 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 }
 
 func (r *mutationResolver) Login(ctx context.Context, input model.Login) (string, error) {
-	panic(fmt.Errorf("not implemented"))
+	if !input.Authenticate(ctx) {
+		return "", errors.New("Fail to authenticate")
+	}
+	token, err := jwt.GenerateToken(input.Username)
+	if err != nil {
+		return "", err
+	}
+	return token, nil
 }
 
 func (r *mutationResolver) RefreshToken(ctx context.Context, input model.RefreshTokenInput) (string, error) {

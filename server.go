@@ -4,7 +4,7 @@ import (
 	db "HowToGraphql/db/sqlc"
 	"HowToGraphql/graph"
 	"HowToGraphql/graph/generated"
-	"HowToGraphql/internal/auth"
+	"HowToGraphql/internal/middleware"
 	"log"
 	"net/http"
 	"os"
@@ -33,7 +33,7 @@ func main() {
 
 	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	http.Handle("/query", auth.Middleware(srv))
+	http.Handle("/query", middleware.Middleware(srv))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
