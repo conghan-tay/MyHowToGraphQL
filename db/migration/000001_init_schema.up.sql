@@ -8,7 +8,7 @@ CREATE TABLE "links" (
   "id" bigserial PRIMARY KEY,
   "title" varchar NOT NULL,
   "address" varchar NOT NULL,
-  "user_id" bigint
+  "user_id" bigint NOT NULL
 );
 
 ALTER TABLE "links" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");

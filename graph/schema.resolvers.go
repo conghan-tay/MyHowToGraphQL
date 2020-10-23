@@ -8,6 +8,7 @@ import (
 	"HowToGraphql/graph/generated"
 	"HowToGraphql/graph/model"
 	"HowToGraphql/internal/auth"
+	"HowToGraphql/internal/middleware"
 	"HowToGraphql/pkg/jwt"
 	"context"
 	"errors"
@@ -16,9 +17,21 @@ import (
 )
 
 func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) (*model.Link, error) {
+	user := middleware.ForContext(ctx)
+	if user == nil {
+		return &model.Link{}, fmt.Errorf("access denied")
+	}
+
+
+	n, err := strconv.ParseInt(user.ID, 10, 64)
+	if err != nil {
+		return &model.Link{}, fmt.Errorf("error with id")
+	}
+
 	result, err := db.DbQueries.CreateLink(ctx, db.CreateLinkParams {
 		Title: input.Title,
 		Address: input.Address,
+		UserID: n,
 	})
 
 	if err != nil {
@@ -29,6 +42,9 @@ func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) 
 		ID:      strconv.FormatInt(result.ID, 10),
 		Title:   result.Title,
 		Address: result.Address,
+		User: &model.User{
+			ID:   user.ID,
+		},
 	}
 	
 	return link, nil
@@ -80,6 +96,10 @@ func (r *queryResolver) Links(ctx context.Context) ([]*model.Link, error) {
 			ID:      strconv.FormatInt(result[i].ID, 10),
 			Title:   result[i].Title,
 			Address: result[i].Address,
+			User : &model.User{
+				ID:   strconv.FormatInt(result[i].UserID,10),
+				Name: result[i].Username,
+			},
 		}
 		links = append(links, link)
 	}

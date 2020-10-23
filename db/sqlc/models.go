@@ -2,15 +2,13 @@
 
 package db
 
-import (
-	"database/sql"
-)
+import ()
 
 type Link struct {
-	ID      int64         `json:"id"`
-	Title   string        `json:"title"`
-	Address string        `json:"address"`
-	UserID  sql.NullInt64 `json:"user_id"`
+	ID      int64  `json:"id"`
+	Title   string `json:"title"`
+	Address string `json:"address"`
+	UserID  int64  `json:"user_id"`
 }
 
 type User struct {
